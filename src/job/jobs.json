@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "name": "RestoreLife",
+      "cron": "*/5 * * * *"
+    },
+    {
+      "name": "RestoreStamina",
+      "cron": "*/10 * * * *"
+    },
+    {
+      "name": "RenewShops",
+      "cron": "0 0 * * *"
+    }
+  ]
+}
