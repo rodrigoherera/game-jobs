@@ -21,7 +21,17 @@ var (
 )
 
 func LoadEnvVars() {
-	e := godotenv.Load("dev.env")
+	var envFile string
+
+	env := os.Getenv("ENV")
+
+	if env == "" {
+		envFile = "dev"
+	} else {
+		envFile = env
+	}
+
+	e := godotenv.Load(envFile + ".env")
 	if e != nil {
 		fmt.Println("couldn't load env file")
 		panic(e)

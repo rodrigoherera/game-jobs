@@ -17,7 +17,7 @@ func (cr *CharacterRepo) RestoreLife() (int64, error) {
 
 	result := tx.Table("characters").
 		Where("life < max_life").
-		UpdateColumn("life", gorm.Expr("life + ?", 5))
+		UpdateColumn("life", gorm.Expr("if (life + 5 > max_life, life + (max_life - life), life + 5)"))
 
 	if result.Error != nil {
 		tx.Rollback()
