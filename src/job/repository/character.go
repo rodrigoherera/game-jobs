@@ -30,11 +30,11 @@ func (cr *CharacterRepo) RestoreLife() (int64, error) {
 }
 
 func (cr *CharacterRepo) RestoreStamina() (int64, error) {
-	/*tx := cr.db.Begin()
+	tx := cr.db.Begin()
 
 	result := tx.Table("characters").
-		Where("life < max_life").
-		UpdateColumn("life", gorm.Expr("life + ?", 5))
+		Where("mission_points < max_mission_points").
+		UpdateColumn("mission_points", gorm.Expr("if (mission_points + 3 > max_mission_points, mission_points + (max_mission_points - mission_points), mission_points + 3)"))
 
 	if result.Error != nil {
 		tx.Rollback()
@@ -43,6 +43,5 @@ func (cr *CharacterRepo) RestoreStamina() (int64, error) {
 
 	tx.Commit()
 
-	return result.RowsAffected, result.Error*/
-	return 0, nil
+	return result.RowsAffected, result.Error
 }

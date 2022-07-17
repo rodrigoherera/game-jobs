@@ -2,11 +2,11 @@
   "tasks": [
     {
       "name": "RestoreLife",
-      "cron": "*/5 * * * *"
+      "cron": "*/15 * * * *"
     },
     {
       "name": "RestoreStamina",
-      "cron": "*/10 * * * *"
+      "cron": "*/30 * * * *"
     },
     {
       "name": "RenewShops",
